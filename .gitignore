@@ -197,3 +197,5 @@ dmypy.json
 
 codealike.json
 .vs/
+test.py
+test/
