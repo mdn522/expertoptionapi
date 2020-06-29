@@ -28,4 +28,4 @@ class Subscribe(Base):
         if json:
             return data
         else:
-            return self.send_websocket_request(self.action, data, ns=ns or "_synth._common.subscribe-" + self.api.request_id)
+            return self.send_websocket_request(self.action, data, ns=ns or ("_synth._common.subscribe-" + self.api.request_id))

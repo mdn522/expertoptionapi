@@ -1,3 +1,4 @@
+from expertoptionapi import global_value
 from expertoptionapi.api import ExpertOptionAPI
 import expertoptionapi.constants as OP_code
 import time
@@ -53,3 +54,8 @@ class ExpertOption:
             else:
                 logging.error(
                     '**error** reconnect() too many time please look log file')
+
+    @staticmethod
+    def check_connect():
+        # True/False
+        return global_value.check_websocket_if_connect == 1

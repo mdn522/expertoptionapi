@@ -16,6 +16,8 @@ import websocket
 from expertoptionapi.constants import REGION
 from expertoptionapi.ws.chanels.multiple_action import MultipleAction
 from expertoptionapi.ws.chanels.ping import Ping
+from expertoptionapi.ws.chanels.subscribe import Subscribe
+from expertoptionapi.ws.chanels.unsubscribe import Unsubscribe
 from expertoptionapi.ws.objects.profile import Profile
 from expertoptionapi.ws.client import WebsocketClient
 import expertoptionapi.global_value as global_value
@@ -150,9 +152,10 @@ class ExpertOptionAPI:
         while True:
             try:
                 self.ping()
-                pause.seconds(5)
             except:
                 pass
+
+            pause.seconds(5)
 
     @property
     def multiple_action(self):
@@ -161,6 +164,14 @@ class ExpertOptionAPI:
     @property
     def ping(self):
         return Ping(self).__call__
+
+    @property
+    def subscribe(self):
+        return Subscribe(self).__call__
+
+    @property
+    def unsubscribe(self):
+        return Unsubscribe(self).__call__
 
     @property
     def websocket(self):
